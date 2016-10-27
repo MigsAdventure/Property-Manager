@@ -10,13 +10,13 @@ export default class ClientForm extends Component {
 
   _submitForm(e) {
     e.preventDefault();
-    const { name, email, phone } = this.refs;
-    let clientPackage = {
+    const { name, email, phone, image } = this.refs;
+    const clientPackage = {
       name: name.value,
       email: email.value,
       phone: phone.value,
+      image: image.value,
     };
-    console.log('ClientPackage: ', clientPackage);
     PropertyActions.createClient(clientPackage);
   }
 
@@ -24,12 +24,13 @@ export default class ClientForm extends Component {
     return (
       <div>
         <form onSubmit={this._submitForm} className='form-inline'>
-          <div className='form-group'>
-            <input ref='name' type="text" className="form-control text-center" placeholder="Name"/>
-            <input ref='email' type="text" className="form-control text-center" placeholder="email"/>
-            <input ref='phone' type="text" className="form-control text-center" placeholder="phone"/>
+          <div>
+            <input ref='name' type="text" className="text-center" placeholder="Name"/>
+            <input ref='email' type="text" className="text-center" placeholder="Email"/>
+            <input ref='phone' type="text" className="text-center" placeholder="Phone"/>
+            <input ref='image' type="text" className="text-center" placeholder="Image url"/>
           </div>
-          <button type='submit' className='btn btn-primary'>Submit</button>
+          <button type='submit' className='btn btn-primary'>Create Client</button>
         </form>
       </div>
     );

@@ -9,7 +9,7 @@ class PropertyStore extends EventEmitter {
 
     AppDispatcher.register((action) => {
       const { type, payload } = action;
-      switch(type) {
+      switch (type) {
         case 'GET_STATS':
           _stats = payload;
           this.emit('CHANGE');
@@ -26,7 +26,7 @@ class PropertyStore extends EventEmitter {
     this.removeListener('CHANGE', cb);
   }
 
-  getStats(){
+  getStats() {
     return _stats;
   }
 }

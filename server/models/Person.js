@@ -6,7 +6,8 @@ const personSchema = new Schema({
   name: { type: String },
   email: { type: String },
   phone: { type: String },
-  // properties: [{ type: Schema.Types.ObjectId, ref: 'Property' }],
+  image: { type: String },
+  address: [{ type: Schema.Types.ObjectId, ref: 'Property' }],
 
 });
 

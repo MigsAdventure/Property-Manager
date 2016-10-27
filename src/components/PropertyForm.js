@@ -10,26 +10,27 @@ export default class PropertyForm extends Component {
 
   _submitForm(e) {
     e.preventDefault();
-    const { name, email, phone } = this.refs;
-    let clientPackage = {
-      name: name.value,
-      email: email.value,
-      phone: phone.valuem,
+    const { image, phone, address, rent } = this.refs;
+    const propertyPackage = {
+      image: image.value,
+      phone: phone.value,
+      address: address.value,
+      rent: rent.value,
     };
-    console.log('ClientPackage: ', clientPackage);
-    PropertyActions.createClient(clientPackage);
+    PropertyActions.createProperty(propertyPackage);
   }
 
   render() {
     return (
       <div>
         <form onSubmit={this._submitForm} className='form-inline'>
-          <div className='form-group'>
-            <input ref='name' type="text" className="form-control text-center" placeholder="Name"/>
-            <input ref='email' type="text" className="form-control text-center" placeholder="email"/>
-            <input ref='phone' type="text" className="form-control text-center" placeholder="phone"/>
+          <div>
+            <input ref='phone' type="text" className="text-center" placeholder="Phone"/>
+            <input ref='address' type="text" className="text-center" placeholder="Address"/>
+            <input ref='rent' type="text" className="text-center" placeholder="Rent"/>
+            <input ref='image' type="text" className="text-center" placeholder="Image url"/>
           </div>
-          <button type='submit' className='btn btn-primary'>Submit</button>
+          <button type='submit' className='btn btn-primary'>Create Property</button>
         </form>
       </div>
     );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import socket from '../socket-init';
-
+import {Link} from 'react-router';
+import classNames from 'classnames';
 export default class Layout extends Component {
   constructor() {
     super();
@@ -8,9 +9,24 @@ export default class Layout extends Component {
 
 
   render() {
+        let path = this.props.location.pathname;
     return (
-      <div className='container'>
-        {this.props.children};
+      <div>
+
+        <ul className='nav nav-tabs'>
+          <li role='presentation' className={classNames({ active: path === '/' })}>
+            <Link to='/'>OverView</Link>
+          </li>
+          <li role='presentation' className={classNames({ active: path === '/form' })}>
+            <Link to='/form'>Form</Link>
+          </li>
+          <li role='presentation' className={classNames({active: path === '/clients'})}>
+            <Link to='/clients'>Clients</Link>
+          </li>
+        </ul>
+        <div className='container'>
+          {this.props.children}
+        </div>
       </div>
     );
   }

@@ -6,3 +6,35 @@
 body {
   text-align: center;
 }
+
+input{
+  display: block;
+  width: 80%;
+  margin: 1em auto;
+  height:2em;
+}
+
+.card {
+  position: relative;
+  display:inline-block;
+  border: solid black 1px;
+  width:15em;
+  height:20em;
+  margin:10px;
+  overflow:hidden;
+}
+
+img {
+  width:14em;
+  height:15em;
+}
+
+.deleteBtn {
+  color:black;
+  border:none;
+  position: absolute;
+  top:0;
+  right:0;
+  background:transparent;
+
+}
