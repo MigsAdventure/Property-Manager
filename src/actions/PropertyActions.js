@@ -21,5 +21,13 @@ const PropertyActions = {
     API.deleteProperty(prop);
   },
 
+  editClient(client) {
+    API.editClient(client);
+  },
+
+  editProperty(prop) {
+    API.editProperty(prop);
+  },
+
 };
 export default PropertyActions;
