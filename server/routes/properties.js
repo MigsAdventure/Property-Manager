@@ -37,7 +37,7 @@ router.route('/:id')
 })
 .put((req, res) => {
   Property.findByIdAndUpdate(req.params.id, { $set: req.body }, (err) => {
-    res.status(err ? 400 : 200).send(err);
+    res.status(err ? 400 : 200).send(err || req.body);
   });
 })
 .delete((req, res) => {
