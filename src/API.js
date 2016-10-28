@@ -35,17 +35,17 @@ const API = {
   },
 
   deleteProperty(prop) {
-    axios.delete(`/api/persons/${prop}`);
+    axios.delete(`/api/properties/${prop}`);
     API.getStats();
   },
 
   editClient(client) {
-    console.log("client", client.id)
     axios.put(`/api/persons/${client.id}`, client);
     API.getStats();
   },
+
   editProperty(prop) {
-    axios.put(`/api/properties/${prop.id}`);
+    axios.put(`/api/properties/${prop.id}`, prop);
     API.getStats();
   },
 };

@@ -23,6 +23,9 @@ export default class Layout extends Component {
           <li role='presentation' className={classNames({active: path === '/clients'})}>
             <Link to='/clients'>Clients</Link>
           </li>
+          <li role='presentation' className={classNames({active: path === '/properties'})}>
+            <Link to='/properties'>Properties</Link>
+          </li>
         </ul>
         <div className='container'>
           {this.props.children}

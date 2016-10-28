@@ -8,6 +8,7 @@ const personSchema = new Schema({
   phone: { type: String },
   image: { type: String },
   address: [{ type: Schema.Types.ObjectId, ref: 'Property' }],
+  rented: { type: Boolean, default: false },
 
 });
 

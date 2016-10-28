@@ -7,6 +7,7 @@ import Layout from './components/Layout';
 import OverView from './components/OverView';
 import InputForm from './components/InputForm';
 import ClientsOverView from './components/ClientsOverView';
+import PropertiesOverView from './components/PropertiesOverView';
 import './stores/PropertyStore';
 
 render(
@@ -15,6 +16,7 @@ render(
       <IndexRoute component={OverView} />
       <Route path='/form' component={InputForm} />
       <Route path='/clients' component={ClientsOverView} />
+      <Route path='/properties' component={PropertiesOverView} />
     </Route>
   </Router>,
   document.getElementById('root')

@@ -9,6 +9,7 @@ export default class Modal extends Component {
     this.editValues = this.editValues.bind(this);
     this.saveEdit = this.saveEdit.bind(this);
     this.selectAddress = this.selectAddress.bind(this);
+    this._onChange = this._onChange.bind(this);
     this.state = this.props;
   }
 
@@ -36,18 +37,18 @@ export default class Modal extends Component {
   }
 
   _onChange() {
-    // this.setState({
-    //   selected: '',
-    //   name: client.name,
-    //   phone: client.phone,
-    //   email: client.email,
-    //   address: client.address,
-    // });
+    this.setState({
+      selected: 'hi',
+      // name: client.name,
+      // phone: client.phone,
+      // email: client.email,
+      // address: client.address,
+    });
   }
 
 
   saveEdit() {
-    let { selected, name, email, phone, id } = this.state;
+    let { selected, name, email, phone, id, image } = this.state;
     let editPackage = {
       name,
       email,
@@ -71,6 +72,7 @@ export default class Modal extends Component {
   }
 
   selectAddress(e) {
+    console.log(e.target);
     this.setState({
       selected: e.target.value,
     });
@@ -99,20 +101,28 @@ export default class Modal extends Component {
                   <h4 className='headings title'><b>Address: </b>{selected}</h4>
                 </div>
                 <div className='optionsContainer'>
-                  <select name="" id="">
-                    {
-                      allProperties.map((prop) => {
-                        return (
-                          <option
-                            onChange={() => this.setState({ selected: prop.address })}
-                            // onClick={(e) => this.selectAddress(e)}
+                  {/* <select name="" id=""> */}
 
-                            value={prop.address}>{prop.address}
-                          </option>
-                        );
-                      })
-                    }
-                  </select>
+                  <form>
+                    <input list="addresses" name="address"/>
+                    <datalist>
+                      {
+                        allProperties.map((prop) => {
+                          return (
+                            <option
+                              onClick={() => this.setState({ selected: prop.address })}
+                              onClick={(e) => this.selectAddress(e)}
+
+                              value={prop.address}>{prop.address}
+                            </option>
+                          );
+                        })
+                      }
+                    </datalist>
+                    <input type="submit"/>
+                  </form>
+
+                  {/* </select> */}
                 </div>
 
                 <div className='editContainer'>

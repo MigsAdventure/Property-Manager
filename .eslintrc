@@ -1,6 +1,7 @@
 {
   "extends": "airbnb",
   "plugin": "react", "babel",
+  "globals": { "describe": true, "it": true },
   "rules": {
     jsx-quotes: ["error", "prefer-single"],
      react/jsx-filename-extension: 0,
